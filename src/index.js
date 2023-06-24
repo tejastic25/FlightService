@@ -1,4 +1,5 @@
 const express = require("express");
+const { PORT } = require('./config/serverconfig')
 const SetandStartServer = () => {
 
     const app = express();
@@ -7,3 +8,4 @@ const SetandStartServer = () => {
     })
 
 }
+SetandStartServer();
