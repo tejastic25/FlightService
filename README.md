@@ -17,4 +17,4 @@
 }
 '''
 -After executing these steps execute npx sequelize db:create init in the terminal inside src path
-then execute npx sequelize db:migrate
+
