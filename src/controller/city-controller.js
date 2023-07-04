@@ -76,7 +76,7 @@ const update = async (req, res) => {
             err: {}
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         return res.status(500).json({
             data: {},
             success: false,
@@ -85,6 +85,27 @@ const update = async (req, res) => {
         });
     }
 }
+const getall = async (req, res) => {
+    try {
+        const cities = await cityService.getallCity(req.query);
+        return res.status(200).json({
+            data: cities,
+            success: true,
+            message: 'Successfully fetched a city',
+            err: {}
+        });
+
+
+    } catch (error) {
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to get cities',
+            err: error
+        });
+    }
+
+}
 
 
 
@@ -92,5 +113,5 @@ module.exports = {
     create,
     destroy,
     get,
-    update
+    update,getall
 }
