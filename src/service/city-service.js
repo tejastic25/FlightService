@@ -53,6 +53,15 @@ class CityService {
             throw { error };
         }
     }
+    async getAirports(cityId) {
+        try {
+            const airports = await this.cityRepository.getAirports(cityId);
+            return airports;
+        } catch (error) {
+            console.log("Something went wrong at service layer");
+            throw { error };
+        }
+    }
 
 
 }

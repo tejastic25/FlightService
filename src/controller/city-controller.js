@@ -106,6 +106,27 @@ const getall = async (req, res) => {
     }
 
 }
+const getAirports = async (req, res) => {
+    try {
+        const airports = await cityService.getAirports(req.params.id);
+        return res.status(200).json({
+            data: airports,
+            success: true,
+            message: 'Successfully fetched a city',
+            err: {}
+        });
+
+
+    } catch (error) {
+        return res.status(500).json({
+            data: {},
+            success: false,
+            message: 'Not able to get airports',
+            err: error
+        });
+    }
+
+}
 
 
 
@@ -113,5 +134,5 @@ module.exports = {
     create,
     destroy,
     get,
-    update,getall
+    update, getall, getAirports
 }

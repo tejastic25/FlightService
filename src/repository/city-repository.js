@@ -80,6 +80,24 @@ class CityRepository {
             throw { error };
         }
     }
+    async getAirports(cityid) {
+        try {
+            const city = await City.findOne(
+                {
+                    where: {
+                        id: cityid
+                    }
+                }
+            )
+            const airports = await city.getAirports();
+            return airports;
+
+
+        } catch (error) {
+            console.log("Something went wrong in the repository layer");
+            throw { error };
+        }
+    }
 
 
 
