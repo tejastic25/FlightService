@@ -1,7 +1,7 @@
 const { AirportService } = require("../service/index");
 const airportservice = new AirportService();
 
-const CreateAirport = async (req, res) => {
+const create = async (req, res) => {
     try {
         const airport = await airportservice.CreateAirport(req.body);
         return res.status(201).json({
@@ -20,7 +20,7 @@ const CreateAirport = async (req, res) => {
         });
     }
 }
-const GetAirport = async (req, res) => {
+const get = async (req, res) => {
     try {
         const airport = await airportservice.GetAirport(req.params.aid);
         return res.status(201).json({
@@ -39,7 +39,7 @@ const GetAirport = async (req, res) => {
         });
     }
 }
-const DeleteAirport = async (req, res) => {
+const destroy = async (req, res) => {
     try {
         const airport = await airportservice.DeleteAirport(req.params.aid);
         return res.status(201).json({
@@ -58,7 +58,7 @@ const DeleteAirport = async (req, res) => {
         });
     }
 }
-const UpdateAirport = async (req, res) => {
+const update = async (req, res) => {
     try {
         const airport = await airportservice.UpdateAirport(req);
         return res.status(201).json({
@@ -78,5 +78,5 @@ const UpdateAirport = async (req, res) => {
     }
 }
 module.exports = {
-    CreateAirport, GetAirport, DeleteAirport, UpdateAirport
+    create, get, destroy, update
 }

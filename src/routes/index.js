@@ -7,4 +7,4 @@ router.use('/v1', v1apiroutes);
 router.delete('/v1', v1apiroutes);
 
 
-module.exports = router;
+module.exports = router;  
