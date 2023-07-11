@@ -2,6 +2,7 @@ const express = require('express');
 const Citycontroller = require('../../controller/city-controller');
 const Airportcontroller = require('../../controller/airport-controller');
 const FlightController = require('../../controller/flight-controller');
+const { FlightMiddlewares } = require('../../middlewares/index');
 const router = express.Router();
 
 router.get('/city', Citycontroller.getall);
@@ -22,7 +23,7 @@ router.delete('/city/:id/airport/:aid', Airportcontroller.destroy);
 
 router.get('/flight', FlightController.getAll);
 //flight crud
-router.post('/flight', FlightController.create);
+router.post('/flight', FlightMiddlewares.ValidateFlightCreate, FlightController.create);
 // router.get('/city/:id/airport/:aid/flight/:fid', FlightController.get);
 // router.get('/city/:id/airport/:aid/flight/:fid', FlightController.update);
 router.delete('/flight/:id', FlightController.destroy);

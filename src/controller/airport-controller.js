@@ -3,6 +3,7 @@ const airportservice = new AirportService();
 
 const create = async (req, res) => {
     try {
+       
         const airport = await airportservice.CreateAirport(req.body);
         return res.status(201).json({
             data: airport,
