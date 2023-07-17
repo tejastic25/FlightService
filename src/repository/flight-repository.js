@@ -42,6 +42,15 @@ class FlightRepository {
             console.log(error);
         }
     }
+    async GetFlight(flightId) {
+        try {
+            const flight = await Flights.findByPk(flightId);
+            return flight;
+        } catch (error) {
+            console.log("something went wrong in repsotiory layer");
+            console.log(error);
+        }
+    }
     async GetAllFlights(filter) {
         try {
             const filterObject = await this.#CreateFilter(filter);
@@ -54,9 +63,26 @@ class FlightRepository {
             console.log(error);
         }
     }
+
+    async UpdateFlight(flightId, data) {
+        try {
+            console.log(data,flightId);
+            const result = await Flights.update(data, {
+                where: {
+                    id: flightId
+                }
+            });
+            // console.log(result);
+            return true;
+
+        } catch (error) {
+            console.log("something went wrong in crud repository");
+            console.log(error);
+        }
+    }
+
     async DeleteFlight(data) {
         try {
-
             const flight = await Flights.destroy({
                 where: {
                     id: data

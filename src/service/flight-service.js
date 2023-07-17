@@ -21,6 +21,15 @@ class FLightService {
             console.log(error);
         }
     }
+    async GetFlight(flightId) {
+        try {
+            const flight = await this.flightRepository.GetFlight(flightId);
+            return flight;
+        } catch (error) {
+            console.log("something went wrong in service layer");
+            console.log(error);
+        }
+    }
     async GetAllFlights(filter) {
         try {
             const flight = await this.flightRepository.GetAllFlights(filter);
@@ -30,6 +39,17 @@ class FLightService {
             console.log(error);
         }
     }
+
+    async UpdateFlight(flightId, data) {
+        try {
+            const flight = await this.flightRepository.UpdateFlight(flightId, data);
+            return flight;
+        } catch (error) {
+            console.log("something went wrong in service layer");
+            console.log(error);
+        }
+    }
+
     async DeleteFlight(data) {
         try {
             const flight = await this.flightRepository.DeleteFlight(data);
@@ -39,15 +59,7 @@ class FLightService {
             console.log(error);
         }
     }
-    // async CreateFlight(data) {
-    //     try {
-    //         const flight = await this.flightRepository.CreateFlight(data);
-    //         return flight;
-    //     } catch (error) {
-    //         console.log("something went wrong in service layer");
-    //         console.log(error);
-    //     }
-    // }
+
     // async CreateFlight(data) {
     //     try {
     //         const flight = await this.flightRepository.CreateFlight(data);
